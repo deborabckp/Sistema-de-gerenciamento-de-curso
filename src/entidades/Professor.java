@@ -1,32 +1,26 @@
 package entidades;
 
-public class Professor {
-    private String departamento;
-    private String especialidade;
+public class Professor extends Usuario{
+    private String formacao;
 
-    public Professor(String departamento, String especialidade) {
-        this.departamento = departamento;
-        this.especialidade = especialidade;
+    public Professor(long matricula, String nome, String cpf, int telefone, String email, String usuario, String senha,
+            String formacao) {
+        super(matricula, nome, cpf, telefone, email, usuario, senha);
+        this.formacao = formacao;
     }
 
-    public String getDepartamento() {
-        return departamento;
+    public String getFormacao() {
+        return formacao;
     }
 
-    public String getEspecialidade() {
-        return especialidade;
-    }
 
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
-    }
-
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
+    public void setFormacao(String formacao) {
+        this.formacao = formacao;
     }
 
     @Override
     public String toString() {
-        return "Professor [departamento=" + departamento + ", especialidade=" + especialidade + "]";
-    }   
+        return "Professor [" + super.toString() + "formacao=" + formacao + "]";
+    }
+
 }
