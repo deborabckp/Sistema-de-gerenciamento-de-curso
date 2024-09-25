@@ -2,27 +2,61 @@ package entidades;
 
 public class Usuario {
 
-    private String nomeUsuario;
+    public class Usuario{
+    private long matricula;
+    private String nome;
     private String cpf;
+    private int telefone;
     private String email;
-    private String telefone;
+    private String usuario;
     private String senha;
 
-    public Usuario(String nomeUsuario, String cpf, String email, String telefone, String senha){
-        this.nomeUsuario = nomeUsuario;
+    
+    public Usuario(long matricula, String nome, String cpf, int telefone, String email, String usuario, String senha) {
+        this.matricula = matricula;
+        this.nome = nome;
         this.cpf = cpf;
-        this.email = email;
         this.telefone = telefone;
+        this.email = email;
+        this.usuario = usuario;
         this.senha = senha;
-        
     }
 
-    public String getNomeUsuario(){
-        return nomeUsuario;
+    public Usuario() {
     }
 
-    public void setNomeUsuario(String nomeUsuario){
-        this.nomeUsuario = nomeUsuario;
+    
+
+    public long getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(long matricula) {
+        this.matricula = matricula;
+    }
+
+    public int getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCpf() {
@@ -41,19 +75,18 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
     public String getSenha() {
         return senha;
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    
+    @Override
+    public String toString() {
+        return "Usuario [matricula=" + matricula + ", nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone
+                + ", email=" + email + ", usuario=" + usuario + ", senha=" + senha + "]";
     }
 }
