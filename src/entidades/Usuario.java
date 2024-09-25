@@ -1,8 +1,6 @@
 package entidades;
 
-public class Usuario {
-
-    public class Usuario{
+public class Usuario{
     private long matricula;
     private String nome;
     private String cpf;

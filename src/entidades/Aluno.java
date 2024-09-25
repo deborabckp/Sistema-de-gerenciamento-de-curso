@@ -1,21 +1,45 @@
 package entidades;
 
-public class Aluno extends Usuario {
-    public Aluno(int matricula) {
-        super(matricula);
-        System.out.println("Aluno criado com matrícula: " + matricula);
+enum SituacaoMatriculaEnum {
+    REGULAR, FORMANDO 
+}
+
+
+public class Aluno extends Usuario{
+    private String cursoDeGraduacao;
+    private SituacaoMatriculaEnum situacaoMatricula;
+    
+    
+    public Aluno(long matricula, String nome, String cpf, int telefone, String email, String usuario, String senha,
+            String cursoDeGraduacao, SituacaoMatriculaEnum situacaoMatricula) {
+        super(matricula, nome, cpf, telefone, email, usuario, senha);
+        this.cursoDeGraduacao = cursoDeGraduacao;
+        this.situacaoMatricula = situacaoMatricula;
     }
 
-    public void atualizarAluno(int novaMatricula) {
-        setId(novaMatricula);
-        System.out.println("Aluno atualizado. Nova matrícula: " + novaMatricula);
+    
+    public String getCursoDeGraduacao() {
+        return cursoDeGraduacao;
     }
 
-    public void lerAluno() {
-        System.out.println("Dados do Aluno: Matrícula = " + getId());
+
+    public void setCursoDeGraduacao(String cursoDeGraduacao) {
+        this.cursoDeGraduacao = cursoDeGraduacao;
     }
 
-    public void deletarAluno() {
-        System.out.println("Aluno com matrícula " + getId() + " deletado.");
+
+    public SituacaoMatriculaEnum getSituacaoMatricula() {
+        return situacaoMatricula;
+    }
+
+
+    public void setSituacaoMatricula(SituacaoMatriculaEnum situacaoMatricula) {
+        this.situacaoMatricula = situacaoMatricula;
+    }
+
+    
+    @Override
+    public String toString() {
+        return "Aluno [" + super.toString()+"cursoDeGraduacao=" + cursoDeGraduacao + ", situacaoMatricula=" + situacaoMatricula + "]";
     }
 }
