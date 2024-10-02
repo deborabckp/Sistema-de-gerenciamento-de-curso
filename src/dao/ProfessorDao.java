@@ -5,12 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import entidades.Aluno;
 import entidades.Professor;
-import entidades.Usuario;
 
 public class ProfessorDao {
     private Connection con;
@@ -25,7 +22,7 @@ public class ProfessorDao {
             pstm.setLong(1, professor.getMatricula());
             pstm.setString(2, professor.getNome());
             pstm.setString(3, professor.getCpf());
-            pstm.setLong(4, professor.getTelefone());
+            pstm.setString(4, professor.getTelefone());
             pstm.setString(5, professor.getEmail());
             pstm.setString(6, professor.getUsuario());
             pstm.setString(7, professor.getSenha());
@@ -42,7 +39,7 @@ public class ProfessorDao {
         try (PreparedStatement pstm = con.prepareStatement(sql)) {
             pstm.setString(1, professor.getNome());
             pstm.setString(2, professor.getCpf());
-            pstm.setLong(3, professor.getTelefone());
+            pstm.setString(3, professor.getTelefone());
             pstm.setString(4, professor.getEmail());
             pstm.setString(5, professor.getUsuario());
             pstm.setString(6, professor.getSenha());
@@ -74,7 +71,7 @@ public class ProfessorDao {
                     rs.getLong("matricula"),
                     rs.getString("nome"),
                     rs.getString("cpf"),
-                    rs.getLong("telefone"),
+                    rs.getString("telefone"),
                     rs.getString("email"),
                     rs.getString("usuario"),
                     rs.getString("senha"),
