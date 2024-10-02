@@ -10,11 +10,11 @@ public class Usuario{
     private String senha;
 
     
-    public Usuario(long matricula, String nome, String cpf, int telefone, String email, String usuario, String senha) {
+    public Usuario(long matricula, String nome, String cpf, long l, String email, String usuario, String senha) {
         this.matricula = matricula;
         this.nome = nome;
         this.cpf = cpf;
-        this.telefone = telefone;
+        this.telefone = (int) l;
         this.email = email;
         this.usuario = usuario;
         this.senha = senha;
