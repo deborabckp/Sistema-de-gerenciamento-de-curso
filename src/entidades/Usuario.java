@@ -4,17 +4,17 @@ public class Usuario{
     private long matricula;
     private String nome;
     private String cpf;
-    private int telefone;
+    private String telefone;
     private String email;
     private String usuario;
     private String senha;
 
     
-    public Usuario(long matricula, String nome, String cpf, long l, String email, String usuario, String senha) {
+    public Usuario(long matricula, String nome, String cpf, String telefone, String email, String usuario, String senha) {
         this.matricula = matricula;
         this.nome = nome;
         this.cpf = cpf;
-        this.telefone = (int) l;
+        this.telefone = telefone;
         this.email = email;
         this.usuario = usuario;
         this.senha = senha;
@@ -33,11 +33,11 @@ public class Usuario{
         this.matricula = matricula;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -84,7 +84,7 @@ public class Usuario{
     
     @Override
     public String toString() {
-        return "Usuario [matricula=" + matricula + ", nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone
-                + ", email=" + email + ", usuario=" + usuario + ", senha=" + senha + "]";
+        return "matricula=" + matricula + ", nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone
+                + ", email=" + email + ", usuario=" + usuario + ", senha=" + senha;
     }
 }

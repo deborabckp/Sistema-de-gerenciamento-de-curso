@@ -2,9 +2,7 @@ package entidades;
 
 import java.time.LocalDate;
 
-enum Modalidade {
-    PRESENCIAL, REMOTO, SEMIPRESENCIAL 
- }
+import enums.ModalidadeEnum;
 
 public class Curso {
     private int id;
@@ -14,11 +12,11 @@ public class Curso {
     private LocalDate dataFim;
     private int cargaHoraria;
     private int vagas;
-    private Modalidade modalidade;
+    private ModalidadeEnum modalidade;
 
     
     public Curso(int id, String nome, String descricao, LocalDate dataInicio, LocalDate dataFim, int cargaHoraria,
-            int vagas, Modalidade modalidade) {
+            int vagas, ModalidadeEnum modalidade) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -85,12 +83,12 @@ public class Curso {
         this.vagas = vagas;
     }
 
-    public Modalidade getModalidade() {
+    public ModalidadeEnum getModalidade() {
         return modalidade;
     }
 
-    public void setModalidade(Modalidade modalidade) {
-        this.modalidade = modalidade;
+    public void setModalidade(String modalidade) {
+        this.modalidade = ModalidadeEnum.valueOf(modalidade);
     }
 
     public String toString() {

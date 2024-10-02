@@ -2,18 +2,16 @@ package entidades;
 
 import java.time.LocalDate;
 
-enum Status {
-    APROVADO, CANCELADO
-}
+import enums.StatusInscricaoEnum;
 
 public class Inscricao {
     private long id;
     private LocalDate dataDeInscricao;
     private double nota;
     private int frequencia;
-    private Status status;
+    private StatusInscricaoEnum status;
 
-    public Inscricao(long id, LocalDate dataDeInscricao, double nota, int frequencia, Status status) {
+    public Inscricao(long id, LocalDate dataDeInscricao, double nota, int frequencia, StatusInscricaoEnum status) {
         this.id = id;
         this.dataDeInscricao = dataDeInscricao;
         this.nota = nota;
@@ -53,12 +51,12 @@ public class Inscricao {
         this.frequencia = frequencia;
     }
 
-    public Status getStatus() {
+    public StatusInscricaoEnum getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setStatus(String status) {
+        this.status = StatusInscricaoEnum.valueOf(status);
     }
 
     @Override
