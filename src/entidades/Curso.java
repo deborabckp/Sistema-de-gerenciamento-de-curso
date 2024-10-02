@@ -27,6 +27,10 @@ public class Curso {
         this.modalidade = modalidade;
     }
 
+    public Curso(){
+        
+    }
+
     public int getId() {
         return id;
     }
