@@ -70,6 +70,34 @@ public class CursoDao {
         
     }
 
+    public Curso visualizar(int idCurso){
+        String sql = "SELECT * from curso WHERE id = ?";
+        try(PreparedStatement pstm = con.prepareStatement(sql)){
+            pstm.setInt(1, idCurso);
+            try (ResultSet rs = pstm.getResultSet()) {
+                Curso curso = new Curso();
+                if(rs.next()){
+                    curso.setId(rs.getInt("id_curso"));
+                    curso.setNome(rs.getString("nome"));
+                    curso.setDescricao(rs.getString("descricao"));
+                    curso.setDataInicio(rs.getDate("data_inicio").toLocalDate());
+                    curso.setDataFim(rs.getDate("data_fim").toLocalDate());
+                    curso.setCargaHoraria(rs.getInt("carga_horaria"));
+                    curso.setVagas(rs.getInt("vagas"));
+                    curso.setModalidade(rs.getString("modalidade"));
+                }
+
+                rs.close();
+                pstm.close();
+                return curso;
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+    
     public List<Curso> listar(){
         String sql = "SELECT * from curso";
         List<Curso> cursos = new ArrayList<>();

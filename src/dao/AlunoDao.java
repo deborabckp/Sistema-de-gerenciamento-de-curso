@@ -73,6 +73,35 @@ public class AlunoDao {
         
     }
 
+    public Aluno visualizar(Long matriculaAluno){
+        String sql = "SELECT * from aluno WHERE matricula = ?";
+        try(PreparedStatement pstm = con.prepareStatement(sql)){
+            pstm.setLong(1, matriculaAluno);
+            try (ResultSet rs = pstm.getResultSet()) {
+                Aluno aluno = new Aluno();
+                if(rs.next()){
+                    aluno.setMatricula(rs.getLong("matricula"));
+                    aluno.setNome(rs.getString("nome"));
+                    aluno.setCpf(rs.getString("cpf"));
+                    aluno.setTelefone(rs.getString("telefone"));
+                    aluno.setEmail(rs.getString("email"));
+                    aluno.setUsuario(rs.getString("usuario"));
+                    aluno.setSenha(rs.getString("senha"));
+                    aluno.setCursoDeGraduacao(rs.getString("curso_de_graduacao"));
+                    aluno.setSituacaoMatricula(rs.getString("situacao_matricula"));
+                }
+
+                rs.close();
+                pstm.close();
+                return aluno;
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public List<Aluno> listar(){
         String sql = "SELECT * from aluno";
         List<Aluno> alunos = new ArrayList<>();

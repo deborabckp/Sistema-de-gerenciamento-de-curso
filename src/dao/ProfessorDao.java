@@ -62,6 +62,34 @@ public class ProfessorDao {
         }
     }
 
+    public Professor visualizar(Long matriculaProfessor){
+        String sql = "SELECT * from professor WHERE matricula = ?";
+        try(PreparedStatement pstm = con.prepareStatement(sql)){
+            pstm.setLong(1, matriculaProfessor);
+            try (ResultSet rs = pstm.getResultSet()) {
+                Professor professor = new Professor();
+                if(rs.next()){
+                    professor.setMatricula(rs.getLong("matricula"));
+                    professor.setNome(rs.getString("nome"));
+                    professor.setCpf(rs.getString("cpf"));
+                    professor.setTelefone(rs.getString("telefone"));
+                    professor.setEmail(rs.getString("email"));
+                    professor.setUsuario(rs.getString("usuario"));
+                    professor.setSenha(rs.getString("senha"));
+                    professor.setFormacao(rs.getString("formacao"));
+                }
+
+                rs.close();
+                pstm.close();
+                return professor;
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public List<Professor> listar() {
         String sql = "SELECT * FROM professor";
         List<Professor> professores = new ArrayList<>();
