@@ -10,7 +10,7 @@ import java.util.List;
 import entidades.Inscricao;
 
 public class InscricaoDao {
-    private Connection con;
+    private final Connection con;
 
     public InscricaoDao(Connection con) {
         this.con = con;
@@ -68,7 +68,7 @@ public class InscricaoDao {
         try(PreparedStatement pstm = con.prepareStatement(sql)){
             pstm.setLong(1, id);
             try (ResultSet rs = pstm.getResultSet()) {
-                Inscricao inscricao = new Inscricao();
+                Inscricao inscricao = new Inscricao(id, null, id, 0, null);
                 if(rs.next()){
                     inscricao.setId(rs.getInt("id_inscricao"));
                     inscricao.setDataDeInscricao(rs.getDate("data_de_inscricao").toLocalDate());
@@ -94,7 +94,7 @@ public class InscricaoDao {
         try(PreparedStatement pstm = con.prepareStatement(sql)){
             try (ResultSet rs = pstm.getResultSet()) {
                 while(rs.next()){
-                    Inscricao inscricao = new Inscricao();
+                    Inscricao inscricao = new Inscricao(0, null, 0, 0, null);
                     inscricao.setId(rs.getInt("id_inscricao"));
                     inscricao.setDataDeInscricao(rs.getDate("data_de_inscricao").toLocalDate());
                     inscricao.setNota(rs.getDouble("nota"));
