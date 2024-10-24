@@ -13,15 +13,15 @@ public class Curso {
     private int cargaHoraria;
     private int vagas;
     private ModalidadeEnum modalidade;
+    private Long matriculaProfessor;
 
-    
-    public Curso(int id, String nome, String descricao, LocalDate dataInicio, LocalDate dataFim, int cargaHoraria,
+    public Curso(int id, String nome, String descricao, String dataInicio, String dataFim, int cargaHoraria,
             int vagas, ModalidadeEnum modalidade) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+        this.dataInicio = LocalDate.parse(dataInicio);
+        this.dataFim = LocalDate.parse(dataFim);
         this.cargaHoraria = cargaHoraria;
         this.vagas = vagas;
         this.modalidade = modalidade;
@@ -87,17 +87,32 @@ public class Curso {
         this.vagas = vagas;
     }
 
-    public ModalidadeEnum getModalidade() {
-        return modalidade;
+    public String getModalidade() {
+        return modalidade.getValue();
     }
 
     public void setModalidade(String modalidade) {
-        this.modalidade = ModalidadeEnum.valueOf(modalidade);
+        if(modalidade.equalsIgnoreCase("remoto")){
+            this.modalidade = ModalidadeEnum.REMOTO;
+        }else if(modalidade.equalsIgnoreCase("semi-presencial")){
+            this.modalidade = ModalidadeEnum.SEMIPRESENCIAL;
+        }else{
+            this.modalidade = ModalidadeEnum.PRESENCIAL;
+        }     
     }
 
+    public Long getMatriculaProfessor() {
+        return matriculaProfessor;
+    }
+    
+    public void setMatriculaProfessor(Long matriculaProfessor) {
+        this.matriculaProfessor = matriculaProfessor;
+    }
+
+    @Override
     public String toString() {
         return "Curso [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", dataInicio=" + dataInicio
                 + ", dataFim=" + dataFim + ", cargaHoraria=" + cargaHoraria + ", vagas=" + vagas + ", modalidade="
-                + modalidade + "]";
+                + modalidade + ", matriculaProfessor="+matriculaProfessor+"]";
     }
 }

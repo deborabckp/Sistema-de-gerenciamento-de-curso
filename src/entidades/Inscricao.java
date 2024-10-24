@@ -10,13 +10,17 @@ public class Inscricao {
     private double nota;
     private int frequencia;
     private StatusInscricaoEnum status;
+    private Long matriculaAluno;
+    private int idCurso;
 
-    public Inscricao(long id, LocalDate dataDeInscricao, double nota, int frequencia, StatusInscricaoEnum status) {
+    public Inscricao(long id, LocalDate dataDeInscricao, StatusInscricaoEnum status) {
         this.id = id;
         this.dataDeInscricao = dataDeInscricao;
-        this.nota = nota;
-        this.frequencia = frequencia;
         this.status = status;
+    }
+
+    public Inscricao(){
+        
     }
 
     public long getId() {
@@ -51,18 +55,41 @@ public class Inscricao {
         this.frequencia = frequencia;
     }
 
-    public StatusInscricaoEnum getStatus() {
-        return status;
+    public String getStatus() {
+        return status.getValue();
     }
 
     public void setStatus(String status) {
-        this.status = StatusInscricaoEnum.valueOf(status);
+
+        if(status.equalsIgnoreCase("Deferida")){
+            this.status = StatusInscricaoEnum.DEFERIDA;
+        }else if(status.equalsIgnoreCase("Indeferida")){
+            this.status = StatusInscricaoEnum.INDEFERIDA;
+        }else {
+            this.status = StatusInscricaoEnum.EMPROCESSAMENTO;
+        }
+    }
+    
+    public Long getMatriculaAluno() {
+        return matriculaAluno;
+    }
+
+    public void setMatriculaAluno(Long matriculaAluno) {
+        this.matriculaAluno = matriculaAluno;
+    }
+    
+    public int getIdCurso() {
+        return idCurso;
+    }
+    
+    public void setIdCurso(int idCurso) {
+        this.idCurso = idCurso;
     }
 
     @Override
     public String toString() {
         return "Inscricao [id=" + id + ", dataDeInscricao=" + dataDeInscricao + ", nota=" + nota + ", frequencia="
-                + frequencia + ", status=" + status + "]";
+                + frequencia + ", status=" + status + ", matriculaAluno=" + matriculaAluno + ", idCurso=" + idCurso
+                + "]";
     }
-    
 }

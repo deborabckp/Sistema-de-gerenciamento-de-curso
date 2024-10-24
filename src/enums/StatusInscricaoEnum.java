@@ -1,8 +1,9 @@
 package enums;
 
 public enum StatusInscricaoEnum {
-    APROVADO("Aprovado"),
-    CANCELADO("Cancelado");
+    DEFERIDA("Deferida"),
+    INDEFERIDA("Indeferida"),
+    EMPROCESSAMENTO("Aguardando processamento");
 
     private String value;
 

@@ -1,21 +1,21 @@
 package entidades;
 
-import enums.SituacaoMatriculaEnum;
-
 public class Aluno extends Usuario{
     private String cursoDeGraduacao;
-    private SituacaoMatriculaEnum situacaoMatricula;
     
     
-    public Aluno(long matricula, String nome, String cpf, String telefone, String email, String usuario, String senha,
-            String cursoDeGraduacao, SituacaoMatriculaEnum situacaoMatricula) {
-        super(matricula, nome, cpf, telefone, email, usuario, senha);
+    public Aluno(long matricula, String nome, String cpf, String telefone, String email, String senha,
+            String cursoDeGraduacao) {
+        super(matricula, nome, cpf, telefone, email, senha);
         this.cursoDeGraduacao = cursoDeGraduacao;
-        this.situacaoMatricula = situacaoMatricula;
+    }
+
+    public Aluno(long matricula, String nome, String cpf, String senha) {
+        super(matricula, nome, cpf, senha);
     }
 
     public Aluno(){
-
+        
     }
 
     
@@ -28,19 +28,9 @@ public class Aluno extends Usuario{
         this.cursoDeGraduacao = cursoDeGraduacao;
     }
 
-
-    public SituacaoMatriculaEnum getSituacaoMatricula() {
-        return situacaoMatricula;
-    }
-
-
-    public void setSituacaoMatricula(String situacaoMatricula) {
-        this.situacaoMatricula = SituacaoMatriculaEnum.valueOf(situacaoMatricula);
-    }
-
     
     @Override
     public String toString() {
-        return "Aluno [" + super.toString()+"cursoDeGraduacao=" + cursoDeGraduacao + ", situacaoMatricula=" + situacaoMatricula + "]";
+        return "Aluno [" + super.toString()+", cursoDeGraduacao=" + cursoDeGraduacao + "]";
     }
 }

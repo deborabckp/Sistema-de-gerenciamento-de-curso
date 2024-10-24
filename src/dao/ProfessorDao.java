@@ -16,57 +16,63 @@ public class ProfessorDao {
         this.con = con;
     }
 
-    public void cadastrar(Professor professor) {
-        String sql = "INSERT INTO professor(matricula, nome, cpf, telefone, email, usuario, senha, formacao) VALUES(?,?,?,?,?,?,?,?)";
-        try (PreparedStatement pstm = con.prepareStatement(sql)) {
+    public void cadastrar(Professor professor){
+        String sql = "INSERT INTO professor(matricula, nome, cpf, telefone, email, senha, formacao) VALUES(?,?,?,?,?,?,?)";
+        try(PreparedStatement pstm = con.prepareStatement(sql)){
             pstm.setLong(1, professor.getMatricula());
             pstm.setString(2, professor.getNome());
             pstm.setString(3, professor.getCpf());
             pstm.setString(4, professor.getTelefone());
             pstm.setString(5, professor.getEmail());
-            pstm.setString(6, professor.getUsuario());
-            pstm.setString(7, professor.getSenha());
-            pstm.setString(8, professor.getFormacao());
+            pstm.setString(6, professor.getSenha());
+            pstm.setString(7, professor.getFormacao());
 
             pstm.execute();
-        } catch (SQLException e) {
+            pstm.close();
+        }catch(SQLException e){
             throw new RuntimeException(e);
         }
     }
 
-    public void atualizar(Professor professor) {
-        String sql = "UPDATE professor SET nome = ?, cpf = ?, telefone = ?, email = ?, usuario = ?, senha = ?, formacao = ? WHERE matricula = ?";
-        try (PreparedStatement pstm = con.prepareStatement(sql)) {
+    public void atualizar(Professor professor){
+        String sql = "UPDATE professor SET " +
+        "nome = ?, cpf = ?, telefone = ?, email = ?, " + 
+        "senha = ?, formacao = ? "+ 
+        "WHERE matricula = ?";
+
+        try(PreparedStatement pstm = con.prepareStatement(sql)){
             pstm.setString(1, professor.getNome());
             pstm.setString(2, professor.getCpf());
             pstm.setString(3, professor.getTelefone());
             pstm.setString(4, professor.getEmail());
-            pstm.setString(5, professor.getUsuario());
-            pstm.setString(6, professor.getSenha());
-            pstm.setString(7, professor.getFormacao());
-            pstm.setLong(8, professor.getMatricula());
+            pstm.setString(5, professor.getSenha());
+            pstm.setString(6, professor.getFormacao());
+            pstm.setLong(7, professor.getMatricula());
 
             pstm.execute();
-        } catch (SQLException e) {
+            pstm.close();
+        }catch(SQLException e){
             throw new RuntimeException(e);
         }
     }
 
-    public void remover(long professorMatricula) {
-        String sql = "DELETE FROM professor WHERE matricula = ?";
+    public void remover(long professorMatricula){
+        String sql = "DELETE FROM professor WHERE professor.matricula = ?";
         try (PreparedStatement pstm = con.prepareStatement(sql)) {
             pstm.setLong(1, professorMatricula);
             pstm.execute();
-        } catch (SQLException e) {
+            pstm.close();
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        
     }
 
     public Professor visualizar(Long matriculaProfessor){
-        String sql = "SELECT * from professor WHERE matricula = ?";
+        String sql = "SELECT * FROM professor WHERE matricula = ?";
         try(PreparedStatement pstm = con.prepareStatement(sql)){
             pstm.setLong(1, matriculaProfessor);
-            try (ResultSet rs = pstm.getResultSet()) {
+            try (ResultSet rs = pstm.executeQuery()) {
                 Professor professor = new Professor();
                 if(rs.next()){
                     professor.setMatricula(rs.getLong("matricula"));
@@ -74,7 +80,6 @@ public class ProfessorDao {
                     professor.setCpf(rs.getString("cpf"));
                     professor.setTelefone(rs.getString("telefone"));
                     professor.setEmail(rs.getString("email"));
-                    professor.setUsuario(rs.getString("usuario"));
                     professor.setSenha(rs.getString("senha"));
                     professor.setFormacao(rs.getString("formacao"));
                 }
@@ -90,26 +95,31 @@ public class ProfessorDao {
         }
     }
 
-    public List<Professor> listar() {
+    public List<Professor> listar(){
         String sql = "SELECT * FROM professor";
         List<Professor> professores = new ArrayList<>();
-        try (PreparedStatement pstm = con.prepareStatement(sql); ResultSet rs = pstm.executeQuery()) {
-            while (rs.next()) {
-                Professor professor = new Professor(
-                    rs.getLong("matricula"),
-                    rs.getString("nome"),
-                    rs.getString("cpf"),
-                    rs.getString("telefone"),
-                    rs.getString("email"),
-                    rs.getString("usuario"),
-                    rs.getString("senha"),
-                    rs.getString("formacao")
-                );
-                professores.add(professor);
+        try(PreparedStatement pstm = con.prepareStatement(sql)){
+            try (ResultSet rs = pstm.executeQuery()) {
+                while(rs.next()){
+                    Professor professor = new Professor();
+                    professor.setMatricula(rs.getLong("matricula"));
+                    professor.setNome(rs.getString("nome"));
+                    professor.setCpf(rs.getString("cpf"));
+                    professor.setTelefone(rs.getString("telefone"));
+                    professor.setEmail(rs.getString("email"));
+                    professor.setSenha(rs.getString("senha"));
+                    professor.setFormacao(rs.getString("formacao"));
+                    professores.add(professor);
+                }
+
+                rs.close();
+                pstm.close();
+                return professores;
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
+        }catch(SQLException e){
             throw new RuntimeException(e);
         }
-        return professores;
     }
 }
