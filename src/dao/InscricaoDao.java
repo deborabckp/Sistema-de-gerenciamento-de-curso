@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.InscricaoDTO;
 import entidades.Inscricao;
 import enums.StatusInscricaoEnum;
 
@@ -19,12 +20,13 @@ public class InscricaoDao {
     }
 
     public void realizarInscricao(long idInscricao, long matricula, int idCurso){
-        String sql = "INSERT INTO inscricao(id_inscricao, data_de_inscricao, matricula_aluno, id_curso) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO inscricao(id_inscricao, data_de_inscricao, matricula_aluno, id_curso, status) VALUES(?,?,?,?,?)";
         try(PreparedStatement pstm = con.prepareStatement(sql)){
             pstm.setLong(1, idInscricao);
             pstm.setDate(2, java.sql.Date.valueOf(LocalDate.now()));
-            pstm.setLong(4, matricula);
-            pstm.setInt(5, idCurso);
+            pstm.setLong(3, matricula);
+            pstm.setInt(4, idCurso);
+            pstm.setString(5, StatusInscricaoEnum.EMPROCESSAMENTO.getValue());
 
             pstm.execute();
         }catch(SQLException e){
@@ -112,20 +114,24 @@ public class InscricaoDao {
         }
     }
 
-    public List<Inscricao> listar(){
-        String sql = "SELECT * from inscricao";
-        List<Inscricao> inscricoes = new ArrayList<>();
+    public List<InscricaoDTO> listar(){
+        String sql = "SELECT id_inscricao, matricula_aluno, a.nome, c.id_curso, c.nome  AS curso, nota, frequencia, status, data_de_inscricao \n" +
+            "FROM aluno a, curso c, inscricao i \n" + //
+            "WHERE i.matricula_aluno = a.matricula AND i.id_curso = c.id_curso;";
+        List<InscricaoDTO> inscricoes = new ArrayList<>();
         try(PreparedStatement pstm = con.prepareStatement(sql)){
             try (ResultSet rs = pstm.executeQuery()) {
                 while(rs.next()){
-                    Inscricao inscricao = new Inscricao();
-                    inscricao.setId(rs.getInt("id_inscricao"));
-                    inscricao.setDataDeInscricao(rs.getDate("data_de_inscricao").toLocalDate());
+                    InscricaoDTO inscricao = new InscricaoDTO();
+                    inscricao.setId(rs.getLong("id_inscricao"));
+                    inscricao.setMatricula(rs.getLong("matricula_aluno"));
+                    inscricao.setNome(rs.getString("nome"));
+                    inscricao.setCodigo(rs.getInt("id_curso"));
+                    inscricao.setCurso(rs.getString("curso"));
                     inscricao.setNota(rs.getDouble("nota"));
                     inscricao.setFrequencia(rs.getInt("frequencia"));
                     inscricao.setStatus(rs.getString("status"));
-                    inscricao.setMatriculaAluno(rs.getLong("matricula_aluno"));
-                    inscricao.setIdCurso(rs.getInt("id_curso"));
+                    inscricao.setDataDeInscricao(rs.getDate("data_de_inscricao").toLocalDate());
 
                     inscricoes.add(inscricao);
                 }

@@ -19,11 +19,11 @@ public class CursoDao {
     public void cadastrar(Curso curso){
         String sql = "INSERT INTO curso(id_curso, nome, descricao, data_inicio, data_fim, carga_horaria, vagas, modalidade) VALUES(?,?,?,?,?,?,?,?)";
         try(PreparedStatement pstm = con.prepareStatement(sql)){
-            pstm.setLong(1, curso.getId());
+            pstm.setInt(1, curso.getId());
             pstm.setString(2, curso.getNome());
             pstm.setString(3, curso.getDescricao());
             pstm.setDate(4, java.sql.Date.valueOf(curso.getDataInicio()));
-            pstm.setDate(5, java.sql.Date.valueOf(curso.getDataFim()));
+            pstm.setDate(5, java.sql.Date.valueOf(curso.getDataFim()));               
             pstm.setInt(6, curso.getCargaHoraria());
             pstm.setInt(7, curso.getVagas());
             pstm.setString(8, curso.getModalidade());

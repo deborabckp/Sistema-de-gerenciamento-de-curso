@@ -5,7 +5,8 @@
         "lib/**/*.jar",
         "jars\\c3p0-0.10.1.jar",
         "jars\\mchange-commons-java-0.3.1.jar",
-        "jars\\postgresql-42.7.4.jar"
+        "jars\\postgresql-42.7.4.jar",
+        "jars\\javafx\\*.jar"
     ],
-    "java.debug.settings.console": "internalConsole"
+    "java.debug.settings.console": "externalTerminal"
 }

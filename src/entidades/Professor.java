@@ -9,8 +9,7 @@ public class Professor extends Usuario{
         this.formacao = formacao;
     }
 
-    public Professor(long matricula, String nome, String cpf, String senha,
-            String formacao) {
+    public Professor(long matricula, String nome, String cpf, String senha) {
         super(matricula, nome, cpf, senha);
     }
     
