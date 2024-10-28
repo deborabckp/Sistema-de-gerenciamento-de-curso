@@ -1,0 +1,71 @@
+.painel-esquerdo{
+    -fx-background-color: #002b15;
+}
+
+.painel-direito{
+    -fx-background-color: #ffffff;
+}
+
+.link{
+    -fx-cursor: hand;
+    -fx-text-fill: #002b15;
+}
+
+.link:hover{
+    -fx-text-fill: #88ffbb;
+}
+
+.campo{
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-border-color: #bbbbbb;
+}
+
+.campo:hover{
+    -fx-background-color:#88ffbb;
+    -fx-border-width: 1.25px;
+    -fx-border-style: solid;
+    -fx-border-color: #002b15;
+}
+
+.botao{
+    -fx-background-color: #103622;
+    -fx-text-fill: #ffffff !important;
+}
+
+.botao:hover{
+    -fx-background-color: #88ffbb;
+    -fx-text-fill: #002b15;
+}
+
+.meusdados{
+    -fx-background-color: linear-gradient(to right, #002b15, #008540);
+    fx-alignement: CENTER;
+}
+
+.table-view,
+.table-view .column-header.botao,
+.table-view .column-header-background .filler,
+.table-view .corner{
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(to right, #002b15, #008540);
+}
+
+.table-view .column-header{
+    -fx-background-color: transparent;
+}
+.table-column .label{
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "SansSerif";
+}
+
+.menu-item{
+    -fx-text-fill: #ffffff;
+}
+.menu-item:hover{
+    -fx-background-color:#88ffbb;
+    -fx-text-fill: #002b15;
+}

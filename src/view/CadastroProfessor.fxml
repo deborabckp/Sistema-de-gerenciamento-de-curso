@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@CadastroAluno.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane prefHeight="600.0" prefWidth="250.0" styleClass="menu" stylesheets="@resources/css/Cadastro.css">
+               <children>
+                  <AnchorPane layoutY="200.0" prefHeight="200.0" prefWidth="250.0" styleClass="menu-container">
+                     <children>
+                        <ImageView fitHeight="128.0" fitWidth="128.0" layoutX="61.0" pickOnBounds="true" preserveRatio="true" styleClass="imagem">
+                           <image>
+                              <Image url="@resources/img/education.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutY="128.0" prefHeight="60.0" prefWidth="250.0" text="SISTEMA DE GERENCIAMENTO &#10;DE CURSOS" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Label alignment="CENTER" layoutY="510.0" prefHeight="32.0" prefWidth="250.0" text="Voltar" textFill="#88ffbb">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/img/arraw-back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children></AnchorPane>
+            <AnchorPane layoutX="250.0" prefHeight="600.0" prefWidth="650.0" styleClass="formulario" stylesheets="@CadastroAluno.css">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="30.0" prefHeight="20.0" prefWidth="650.0" text="CADASTRO DE PROFESSOR" textFill="#002b15">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="50.0" layoutY="90.0" prefHeight="60.0" prefWidth="150.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="200.0" text="MATRÍCULA" textFill="#002b15">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutY="25.0" prefHeight="30.0" prefWidth="150.0" styleClass="campo" stylesheets="@resources/css/Cadastro.css">
+                           <font>
+                              <Font name="SansSerif Regular" size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="250.0" layoutY="90.0" prefHeight="60.0" prefWidth="350.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="200.0" text="NOME" textFill="#002b15">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutY="25.0" prefHeight="30.0" prefWidth="350.0" styleClass="campo" stylesheets="@resources/css/Cadastro.css" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="50.0" layoutY="180.0" prefHeight="60.0" prefWidth="150.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="200.0" text="CPF" textFill="#002b15">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutY="25.0" prefHeight="30.0" prefWidth="150.0" promptText="000.000.000-00" styleClass="campo" stylesheets="@resources/css/Cadastro.css">
+                           <font>
+                              <Font name="SansSerif Regular" size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="250.0" layoutY="180.0" prefHeight="60.0" prefWidth="150.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="200.0" text="TELEFONE" textFill="#002b15">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutY="25.0" prefHeight="30.0" prefWidth="150.0" promptText="(99)99999-9999" styleClass="campo" stylesheets="@resources/css/Cadastro.css">
+                           <font>
+                              <Font name="SansSerif Regular" size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="50.0" layoutY="270.0" prefHeight="60.0" prefWidth="150.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="200.0" text="E-MAIL" textFill="#002b15">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutY="25.0" prefHeight="30.0" prefWidth="350.0" styleClass="campo" stylesheets="@resources/css/Cadastro.css">
+                           <font>
+                              <Font name="SansSerif Regular" size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="50.0" layoutY="350.0" prefHeight="60.0" prefWidth="150.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="200.0" text="FORMAÇÃO ACADÊMICA" textFill="#002b15">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutY="25.0" prefHeight="30.0" prefWidth="350.0" styleClass="campo" stylesheets="@resources/css/Cadastro.css">
+                           <font>
+                              <Font name="SansSerif Regular" size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+                  <Button alignment="CENTER" layoutX="350.0" layoutY="480.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="botao" stylesheets="@resources/css/Cadastro.css" text="SALVAR" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="500.0" layoutY="480.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="botao" stylesheets="@resources/css/Cadastro.css" text="LIMPAR" textFill="WHITE">
+                     <font>
+                        <Font name="SansSerif Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

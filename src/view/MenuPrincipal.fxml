@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <AnchorPane prefHeight="600.0" prefWidth="250.0" styleClass="painel-esquerdo" stylesheets="@resources/css/estilo.css">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="250.0">
+                     <children>
+                        <ImageView fitHeight="128.0" fitWidth="120.0" layoutX="61.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/img/profile.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutY="156.0" prefHeight="30.0" prefWidth="250.0" text="NOME DO USUÁRIO" textFill="#88ffbb">
+                           <font>
+                              <Font name="SansSerif Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutY="200.0" prefHeight="400.0" prefWidth="250.0">
+                     <children>
+                        <Label graphicTextGap="10.0" prefHeight="30.0" prefWidth="250.0" styleClass="menu-item" stylesheets="@resources/css/estilo.css" text="MENU PRINCIPAL" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/img/home.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                        <Label graphicTextGap="10.0" layoutY="50.0" prefHeight="30.0" prefWidth="250.0" styleClass="menu-item" stylesheets="@resources/css/estilo.css" text="CURSOS" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/img/courses.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                        <Label graphicTextGap="10.0" layoutY="100.0" prefHeight="30.0" prefWidth="250.0" styleClass="menu-item" stylesheets="@resources/css/estilo.css" text="PROFESSORES" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/img/teacher.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                        <Label graphicTextGap="10.0" layoutY="150.0" prefHeight="30.0" prefWidth="250.0" styleClass="menu-item" stylesheets="@resources/css/estilo.css" text="MINHAS INSCRIÇÕES" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/img/application.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                        <Label graphicTextGap="10.0" layoutY="200.0" prefHeight="30.0" prefWidth="250.0" styleClass="menu-item" stylesheets="@resources/css/estilo.css" text="VISUALIZAR TURMAS" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/img/class.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                        <Label graphicTextGap="10.0" layoutY="250.0" prefHeight="30.0" prefWidth="250.0" styleClass="menu-item" stylesheets="@resources/css/estilo.css" text="HISTÓRICO" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/img/history.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                        <Label graphicTextGap="10.0" layoutY="330.0" prefHeight="40.0" prefWidth="250.0" styleClass="menu-item" text="SAIR" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/img/logout.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="90.0" />
+                           </padding>
+                        </Label>
+                     </children></AnchorPane>
+               </children></AnchorPane>
+            <AnchorPane layoutX="250.0" prefHeight="600.0" prefWidth="650.0" styleClass="painel-direito" stylesheets="@resources/css/estilo.css">
+               <children>
+                  <Label alignment="CENTER" layoutY="30.0" prefHeight="30.0" prefWidth="650.0" text="MINHAS TURMAS" textFill="#002b15">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TableView layoutX="85.0" layoutY="80.0" prefHeight="200.0" prefWidth="480.0" style="-fx-background-color: #fff; -fx-border-color: #000;" stylesheets="@resources/css/estilo.css">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="CODIGO" />
+                      <TableColumn prefWidth="300.0" text="CURSO" />
+                        <TableColumn prefWidth="100.0" text="MODALIDADE" />
+                    </columns>
+                  </TableView>
+                  <AnchorPane layoutX="25.0" layoutY="325.0" prefHeight="250.0" prefWidth="600.0" styleClass="meusdados" stylesheets="@resources/css/estilo.css">
+                     <children>
+                        <Label alignment="CENTER" layoutY="20.0" prefHeight="30.0" prefWidth="600.0" text="MEUS DADOS" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="20.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/img/user.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="110.0" layoutY="50.0" prefHeight="25.0" prefWidth="300.0" text="MATRÍCULA:" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="110.0" layoutY="80.0" prefHeight="25.0" prefWidth="300.0" text="NOME:" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="110.0" layoutY="110.0" prefHeight="25.0" prefWidth="200.0" text="CPF:" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="320.0" layoutY="110.0" prefHeight="25.0" prefWidth="200.0" text="TELEFONE:" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="110.0" layoutY="140.0" prefHeight="25.0" prefWidth="200.0" text="E-MAIL" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="110.0" layoutY="170.0" prefHeight="25.0" prefWidth="200.0" text="CURSO:" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
